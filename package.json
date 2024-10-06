@@ -1,0 +1,29 @@
+{
+    "name": "variable-rate-sc-bonds",
+    "version": "1.0.0",
+    "description": "",
+    "main": "contracts/index.js",
+    "scripts": {
+        "test": "mocha --register ts-node/register --ignore 'node_modules/**/*' '**/*.spec.ts'",
+        "build": "./build.sh",
+        "build:mon": "nodemon -w src -e sol --exec ./build.sh",
+        "slither": "docker run --rm  -v $(pwd):/share --entrypoint '/share/slither-cmd.sh' trailofbits/eth-security-toolbox"
+    },
+    "keywords": [],
+    "author": "Alexandre Manuel",
+    "license": "Apache 2.0",
+    "dependencies": {
+        "sc-bonds": "file:sc-bonds",
+        "ethers": "^6.13.3",
+        "solc": "^0.8.17"
+    },
+    "mocha": {
+        "spec": [
+        "**/*.spec.ts"
+        ],
+        "ignore": "node_modules/**/*",
+        "require": [
+        "ts-node/register"
+        ]
+    }
+}
